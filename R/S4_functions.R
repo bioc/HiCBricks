@@ -108,7 +108,7 @@ create_configuration_object <- function(object){
 .write_configuration_file <- function(object, config_filepath){
         config_object = create_configuration_object(object)
         config_json = prettify(toJSON(config_object), indent = 4)
-        write_lines(x = config_json, path = config_filepath)
+        write_lines(x = config_json, file = config_filepath)
 }
 
 BrickContainer_list_rangekeys <- function(object, resolution = NA, 
