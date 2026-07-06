@@ -1295,6 +1295,11 @@ Brick_vizart_plot_heatmap(File = file.path(tempdir(),
 
 ```
 
+```{r cleanup, include=FALSE}
+try(rhdf5::h5closeAll(), silent = TRUE)
+gc()
+```
+
 ### Modifying text elements in plots
 
 There are several additional parameters which can be used to modify tex elements in plots. 
