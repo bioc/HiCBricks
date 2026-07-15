@@ -168,7 +168,9 @@ Create_many_Bricks <- function(BinTable, bin_delim="\t", col_index=c(1,2,3),
     link_existing = FALSE, experiment_name = NA, resolution = NA, 
     type = c("both", "cis", "trans")){
 
-    H5close()
+    on.exit({
+        try(rhdf5::h5closeAll(), silent = TRUE)
+    }, add = TRUE)
     type = match.arg(type)
     Reference.object <- GenomicMatrix$new()
     if(is.na(output_directory)){
